@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');  
 const path = require('path');
+const productRouter = express.Router();
 
 const app = express();
 const PORT = 3000;
@@ -10,16 +11,21 @@ const PORT = 3000;
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname,"/public/")));
 
-app.set("views","../src/views");
+app.set("views","./src/views");
 app.set("view engine","ejs")
 
-productRouter.router("/").get((req,res) =>{
-    res.render("products");
+productRouter.route("/").get((req,res) =>{
+    res.render("products",{
+        products: [
+            {title: 'car', Description: 'NISSIN SKYLINE R35' , Price : '25.m'},
+            {title: 'car', Description: 'MORSIDAS BENZ ' , Price : '30.m'},
+            {title: 'car', Description: 'MACRARAN P1 ' , Price : '50.m'},
+            {title: 'car', Description: 'BMW SERIES 3 ' , Price : '10.m'},
+        ]
+    }
+    );
 });
 
-productRouter.router("/1").get((req,res) =>{
-    res.send("hello 1");
-});
 
 app.use("/products", productRouter)
 
