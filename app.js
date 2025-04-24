@@ -17,10 +17,10 @@ app.set("view engine","ejs")
 productRouter.route("/").get((req,res) =>{
     res.render("products",{
         products: [
-            {title: 'car', Description: 'NISSIN SKYLINE R35' , Price : '25.m'},
-            {title: 'car', Description: 'MORSIDAS BENZ ' , Price : '30.m'},
-            {title: 'car', Description: 'MACRARAN P1 ' , Price : '50.m'},
-            {title: 'car', Description: 'BMW SERIES 3 ' , Price : '10.m'},
+            {title: 'car1', Description: 'NISSIN SKYLINE R35' , Price : '25.m'},
+            {title: 'car2', Description: 'MORSIDAS BENZ ' , Price : '30.m'},
+            {title: 'car3', Description: 'MACRARAN P1 ' , Price : '50.m'},
+            {title: 'car4', Description: 'BMW SERIES 3 ' , Price : '10.m'},
         ]
     }
     );
